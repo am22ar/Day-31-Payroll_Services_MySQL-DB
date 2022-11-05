@@ -41,3 +41,25 @@ mysql> select database();			#getting the current/present database name
 | payroll_service |
 +-----------------+
 1 row in set (0.00 sec)
+
+mysql> create table employee_payroll(	#create table: employee_payroll
+    -> id int not null auto_increment,	#unique id with auto increment
+    -> name varchar(50) not null,		#name string type
+    -> salary double not null,		#salary double type
+    -> startdate date not null,		#date type
+    -> primary key (id)				#no duplicates or null values are allowed
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc employee_payroll;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int         | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(50) | NO   |     | NULL    |                |
+| salary    | double      | NO   |     | NULL    |                |
+| startdate | date        | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql>
