@@ -159,5 +159,49 @@ mysql> select * from employee_payroll;
 +----+---------+--------+---------+------------+
 3 rows in set (0.00 sec)
 
-mysql>
+mysql> select avg(salary) from employee_payroll
+    -> where gender='m' group by gender;
++-------------+
+| avg(salary) |
++-------------+
+|     2000000 |
++-------------+
+1 row in set (0.00 sec)
 
+mysql> select avg(salary) from employee_payroll			#average of salary by grouping of gender
+    ->  group by gender;
++-------------+
+| avg(salary) |
++-------------+
+|     2000000 |
+|     3000000 |
++-------------+
+2 rows in set (0.00 sec)
+
+mysql> select gender, avg(salary) from employee_payroll group by gender;	
++--------+-------------+
+| gender | avg(salary) |
++--------+-------------+
+| m      |     2000000 |
+| f      |     3000000 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select  gender, count(salary) from employee_payroll group by gender;
++--------+---------------+
+| gender | count(salary) |
++--------+---------------+
+| m      |             2 |
+| f      |             1 |
++--------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> select name, gender, min(salary) from employee_payroll;
++------+--------+-------------+
+| name | gender | min(salary) |
++------+--------+-------------+
+| Bill | m      |     1000000 |
++------+--------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
